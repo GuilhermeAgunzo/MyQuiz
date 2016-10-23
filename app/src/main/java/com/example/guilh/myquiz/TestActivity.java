@@ -1,5 +1,6 @@
 package com.example.guilh.myquiz;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -412,9 +413,21 @@ public class TestActivity extends AppCompatActivity {
             if(position < stats.difficulty){
                 refreshQuestion();
             }else{
-
+                Intent i = new Intent(getApplicationContext(),ResultActivity.class);
+                i.putExtra("score", stats.points);
+                startActivity(i);
             }
+        }else{
+            Intent i = new Intent(getApplicationContext(),ResultActivity.class);
+            i.putExtra("score", stats.prevPoints);
+            startActivity(i);
         }
+    }
+
+    public void stop(View view){
+        Intent i = new Intent(getApplicationContext(),ResultActivity.class);
+        i.putExtra("score", stats.points);
+        startActivity(i);
     }
 
 }
