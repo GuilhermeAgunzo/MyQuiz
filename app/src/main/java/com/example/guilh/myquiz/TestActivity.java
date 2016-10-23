@@ -153,7 +153,7 @@ public class TestActivity extends AppCompatActivity {
 
         Question q14 = new Question();
         q14.question="As arquiteturas de rede Ethernet, Token Ring , e FDDI, no modelo OSI, operam na(s) camada(s):";
-        q14.answer="1e2";
+        q14.answer="1 e 2";
         q14.options = new String[]{"3",
                 "1, 2 e 3",
                 "2",
@@ -340,6 +340,14 @@ public class TestActivity extends AppCompatActivity {
 
     private void refreshQuestion(){
 
+        TextView prevScore = (TextView) findViewById(R.id.textView4);
+        prevScore.setText(Integer.toString(stats.prevPoints));
+        TextView score = (TextView) findViewById(R.id.textView6);
+        score.setText(Integer.toString(stats.points));
+        TextView nextScore = (TextView) findViewById(R.id.textView8);
+        nextScore.setText(Integer.toString(stats.nextPoints));
+
+
         Question q = questions.get(position);
         TextView qTextView = (TextView) findViewById(R.id.textView2);
         qTextView.setText(q.question);
@@ -374,6 +382,29 @@ public class TestActivity extends AppCompatActivity {
         String answer = (String) optionSelected.getText();
         //Verifica se a resposta está certa
         if(answer.equals(q.answer)){
+
+            //Soma pontuação de acordo com a condição
+            if(position < 10){
+                if(position == 0){
+                    stats.prevPoints = 0;
+                }else{
+                    stats.prevPoints += 1000;
+                }
+
+                stats.points += 1000;
+                stats.nextPoints = stats.nextPoints + 1000;
+            }
+            else if(position >= 10 && position < 20){
+
+                stats.points += 10000;
+                stats.prevPoints = stats.points - 10000;
+                stats.nextPoints = stats.points + 10000;
+            }else{
+                stats.points += 100000;
+                stats.prevPoints = stats.points - 100000;
+                stats.nextPoints = stats.points + 100000;
+            }
+            //Incrementa posição e limpa a seleçao dos Radio Buttons
             position++;
             radioButtonGroup.clearCheck();
 
@@ -381,7 +412,7 @@ public class TestActivity extends AppCompatActivity {
             if(position < stats.difficulty){
                 refreshQuestion();
             }else{
-                
+
             }
         }
     }
