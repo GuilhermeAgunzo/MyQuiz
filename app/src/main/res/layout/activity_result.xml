@@ -9,6 +9,14 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.guilh.myquiz.ResultActivity">
 
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:id="@+id/imageView3"
+        android:src="@drawable/gold"
+        android:layout_above="@+id/button6"
+        android:layout_centerHorizontal="true" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -26,7 +34,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Você ganhou:"
         android:id="@+id/textView9"
-        android:layout_alignParentTop="true"
+        android:layout_alignTop="@+id/imageView"
         android:layout_centerHorizontal="true" />
 
     <TextView
@@ -35,7 +43,63 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="[Points]"
         android:id="@+id/textView10"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/textView9"
         android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="170dp"
+        android:id="@+id/imageView"
+        android:src="@drawable/silvio02"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="110dp"
+        android:layout_height="150dp"
+        android:id="@+id/imageView2"
+        android:src="@drawable/silvio01"
+        android:layout_below="@+id/textView10"
+        android:layout_toEndOf="@+id/imageView3" />
+
+    <ImageView
+        android:layout_width="110dp"
+        android:layout_height="150dp"
+        android:id="@+id/imageView4"
+        android:src="@drawable/goldbar"
+        android:layout_above="@+id/textView9"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="110dp"
+        android:layout_height="150dp"
+        android:id="@+id/imageView5"
+        android:src="@drawable/goldbar"
+        android:layout_above="@+id/textView9"
+        android:layout_alignEnd="@+id/imageView3" />
+
+    <ImageView
+        android:layout_width="110dp"
+        android:layout_height="150dp"
+        android:id="@+id/imageView6"
+        android:src="@drawable/goldbar"
+        android:layout_alignBottom="@+id/imageView5"
+        android:layout_alignStart="@+id/textView10" />
+
+    <ImageView
+        android:layout_width="110dp"
+        android:layout_height="150dp"
+        android:id="@+id/imageView7"
+        android:src="@drawable/goldbar"
+        android:layout_alignBottom="@+id/imageView6"
+        android:layout_toEndOf="@+id/imageView" />
+
+    <ImageView
+        android:layout_width="110dp"
+        android:layout_height="150dp"
+        android:id="@+id/imageView8"
+        android:src="@drawable/goldbar"
+        android:layout_above="@+id/imageView"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

@@ -18,7 +18,6 @@ public class TestActivity extends AppCompatActivity {
     private ArrayList<Question> questions;
     private int position = 0;
     private Control stats = new Control();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,13 +27,17 @@ public class TestActivity extends AppCompatActivity {
         stats.prevPoints = 0;
         stats.points = 0;
         stats.nextPoints = 1000;
-        createTest();
-        refreshQuestion();
+        createTest();      //Cria o Quiz
+        refreshQuestion(); //Mostra a primeira questão
     }
 
+    //Esse método cria um arrayList com as questoes e embaralha o mesmo
     private void createTest(){
 
+        //Definindo ArrayList
         questions = new ArrayList<>();
+
+        //Criando e adicionando questões
         Question q1 = new Question();
         q1.question="Os tipos de transmissão são:";
         q1.answer="Simplex, Half-Duplex e Full-Duplex";
@@ -305,8 +308,10 @@ public class TestActivity extends AppCompatActivity {
                 "Sample Mail Transfer Protocol"};
         questions.add(q30);
 
-
+        //Embaralha as questões
         Collections.shuffle(questions);
+
+        //Embaralha as alternativas
         Collections.shuffle(Arrays.asList(q1.options));
         Collections.shuffle(Arrays.asList(q2.options));
         Collections.shuffle(Arrays.asList(q3.options));
@@ -339,6 +344,7 @@ public class TestActivity extends AppCompatActivity {
         Collections.shuffle(Arrays.asList(q30.options));
     }
 
+    //Atualiza a questão e as pontuações
     private void refreshQuestion(){
 
         TextView prevScore = (TextView) findViewById(R.id.textView4);
@@ -371,8 +377,6 @@ public class TestActivity extends AppCompatActivity {
     }
 
     public void nextQuestion(View view){
-
-
         Question q = questions.get(position);
 
         //Busca o ID do RadioButton que foi selecionado
@@ -383,7 +387,6 @@ public class TestActivity extends AppCompatActivity {
         String answer = (String) optionSelected.getText();
         //Verifica se a resposta está certa
         if(answer.equals(q.answer)){
-
             //Soma pontuação de acordo com a condição
             if(position < 10){
                 if(position == 0){
@@ -418,12 +421,14 @@ public class TestActivity extends AppCompatActivity {
                 startActivity(i);
             }
         }else{
+            //Caso erre a questão o jogo acaba e o usuário fica com a pontuação anterior
             Intent i = new Intent(getApplicationContext(),ResultActivity.class);
             i.putExtra("score", stats.prevPoints);
             startActivity(i);
         }
     }
 
+    //Esse método para a aplicação e leva o usuario para o resultado atual dele
     public void stop(View view){
         Intent i = new Intent(getApplicationContext(),ResultActivity.class);
         i.putExtra("score", stats.points);
