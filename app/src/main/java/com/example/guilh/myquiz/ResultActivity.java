@@ -4,31 +4,19 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 public class ResultActivity extends AppCompatActivity {
-
-    //List<String> results;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
-
-      /*  if(results == null){
-            results = new ArrayList<String>();
-        }
-      */
 
         int score = getIntent().getIntExtra("score",0);
 
@@ -37,16 +25,6 @@ public class ResultActivity extends AppCompatActivity {
 
         addResult(score);
 
-        //ListView listView = (ListView) findViewById(R.id.listView);
-
-        /*
-        ArrayAdapter<String> aa = new ArrayAdapter<String>(
-                this,
-                android.R.layout.simple_list_item_1,
-                results);
-
-        listView.setAdapter(aa);
-        */
     }
 
     public void back(View view){
@@ -67,7 +45,6 @@ public class ResultActivity extends AppCompatActivity {
             String data_completa = dateFormat.format(data_atual);
 
             Control.getResults().add(data_completa + " - " + Integer.toString(score));
-            //results.add(data_completa + " - " + Integer.toString(score));
 
         }
     }
