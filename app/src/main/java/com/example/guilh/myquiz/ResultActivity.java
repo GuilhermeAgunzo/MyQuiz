@@ -35,7 +35,7 @@ public class ResultActivity extends AppCompatActivity {
         TextView points = (TextView) findViewById(R.id.textView10);
         points.setText("R$ " + Integer.toString(score));
 
-        //addResult(score);
+        addResult(score);
 
         //ListView listView = (ListView) findViewById(R.id.listView);
 
@@ -66,6 +66,7 @@ public class ResultActivity extends AppCompatActivity {
 
             String data_completa = dateFormat.format(data_atual);
 
+            Control.getResults().add(data_completa + " - " + Integer.toString(score));
             //results.add(data_completa + " - " + Integer.toString(score));
 
         }

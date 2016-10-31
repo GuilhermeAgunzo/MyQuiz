@@ -20,8 +20,10 @@
         <activity
             android:name=".TestActivity"
             android:screenOrientation="landscape" />
-        <activity android:name=".ResultActivity"
-            android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".ResultActivity"
+            android:screenOrientation="landscape" />
+        <activity android:name=".ListActivity"></activity>
     </application>
 
 </manifest>

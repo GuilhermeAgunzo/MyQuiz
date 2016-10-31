@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         Button btn = (Button) findViewById(R.id.button);
         Button btn2 = (Button) findViewById(R.id.button2);
         Button btn3 = (Button) findViewById(R.id.button3);
-
+        Button btn4 = (Button) findViewById(R.id.button7);
         //Pega o clique dos botões e dependendo de qual for clicado é definida a quantidade de perguntas
         btn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -47,6 +47,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(),TestActivity.class);
                 i.putExtra("diff",30);
+                startActivity(i);
+            }
+        });
+
+        btn4.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent i = new Intent(getApplicationContext(),ListActivity.class);
                 startActivity(i);
             }
         });
